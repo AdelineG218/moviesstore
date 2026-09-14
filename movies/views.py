@@ -62,4 +62,7 @@ def delete_review(request, id, review_id):
     review.delete()
     return redirect('movies.show', id=id)
 
-# create a report_review function that is also @login_required
+def report_review(request, id, review_id):
+    review = get_object_or_404(Review, id=review_id)
+    review.delete()
+    return redirect('movies.show', id=id)
